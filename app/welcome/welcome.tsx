@@ -5,7 +5,7 @@ export function Welcome() {
     <main className="flex items-start justify-start pt-2 pb-2 border border-2 border-gray-400 rounded-lg" >
       <div className="flex-1 flex flex-col items-start gap-2 min-h-0">
         <header className="flex flex-col items-center gap-9">
-          <div className="w-[500px] max-w-[100vw] p-4">
+          <div className="w-full max-w-[500px] p-4">
             {'Canvas Practice'}
           </div>
         </header>

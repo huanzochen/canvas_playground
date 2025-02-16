@@ -11,8 +11,10 @@ export function meta({ }: Route.MetaArgs) {
 
 export default function SimpleHook() {
   return (
-    <>
+    <div className="flex flex-col h-screen">
       <Welcome />
-      <CanvasHook />
-    </>);
+      <div className="flex-grow">
+        <CanvasHook />
+      </div>
+    </div>);
 }

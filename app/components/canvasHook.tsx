@@ -10,9 +10,13 @@ export function CanvasHook() {
     const c = canvas.getContext("2d");
     if (!c) return
 
-    // set canvas size dynamically
-    canvas.width = document.documentElement.clientWidth
-    canvas.height = document.documentElement.clientHeight
+    const resizeCanvas = () => {
+      // set canvas size dynamically
+      canvas.width = canvas.parentElement?.clientWidth || document.documentElement.clientWidth
+      canvas.height = canvas.parentElement?.clientHeight || document.documentElement.clientHeight
+    }
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas)
 
     // Example: Draw a moving circle
     let x = canvas.width / 2
@@ -20,7 +24,6 @@ export function CanvasHook() {
     let dx = 2
     let dy = 2
     const radius = 30
-
     const animate = () => {
       c.clearRect(0, 0, canvas.width, canvas.height)
       c.beginPath();
@@ -33,7 +36,7 @@ export function CanvasHook() {
       y += dy
 
       if (x + radius > canvas.width || x - radius < 0) dx = -dx
-      if (y + radius > canvas.width || y - radius < 0) dy = -dy
+      if (y + radius > canvas.height || y - radius < 0) dy = -dy
 
       requestAnimationFrame(animate)
     }
@@ -42,11 +45,12 @@ export function CanvasHook() {
 
     return () => {
       cancelAnimationFrame(animate as any)
+      window.removeEventListener("resize", resizeCanvas)
     }
 
   }, [])
 
 
   return (
-    <canvas ref={canvasRef}></canvas>)
+    <canvas ref={canvasRef} className="w-full h-full"></canvas>)
 }
