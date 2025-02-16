@@ -22,7 +22,9 @@ export function Welcome() {
               })}>{"Simple Hook"}</NavLink>
             </ul>
             <ul>
-              {"Test2"}
+              <NavLink to="/hook" style={({ isActive }) => ({
+                fontWeight: isActive ? "bold" : "normal",
+              })}>{"Hook"}</NavLink>
             </ul>
           </nav>
         </div>
