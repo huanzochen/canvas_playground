@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react"
+import { debounce } from "lodash-es"
 
 export function CanvasHook() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -10,11 +11,11 @@ export function CanvasHook() {
     const c = canvas.getContext("2d");
     if (!c) return
 
-    const resizeCanvas = () => {
+    const resizeCanvas = debounce(() => {
       // set canvas size dynamically
       canvas.width = canvas.parentElement?.clientWidth || document.documentElement.clientWidth
       canvas.height = canvas.parentElement?.clientHeight || document.documentElement.clientHeight
-    }
+    }, 100, { 'leading': true })
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas)
 
