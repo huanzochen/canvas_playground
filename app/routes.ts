@@ -1,6 +1,7 @@
-import { type RouteConfig, index } from "@react-router/dev/routes";
+import { type RouteConfig, index, route } from "@react-router/dev/routes";
 
 export default [
-  index("routes/main.tsx")
+  index("routes/main.tsx"),
+  route("canvas-hook", "routes/canvasHook.tsx")
 
 ] satisfies RouteConfig;
