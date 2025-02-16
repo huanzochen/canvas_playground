@@ -12,14 +12,14 @@ export function Welcome() {
         <div className="max-w-[300px] w-full space-y-3 px-2">
           <nav className="rounded-xl border border-gray-200 p-2 dark:border-gray-700 space-y-1">
             <p className="leading-6 text-lg text-gray-700 dark:text-gray-200">
-              <NavLink to="/" style={({ isActive, isPending }) => ({
+              <NavLink to="/" style={({ isActive }) => ({
                 fontWeight: isActive ? "bold" : "normal",
               })}>{"Home"}</NavLink>
             </p>
             <ul>
-              <NavLink to="/canvas-hook" style={({ isActive, isPending }) => ({
+              <NavLink to="/simple-hook" style={({ isActive }) => ({
                 fontWeight: isActive ? "bold" : "normal",
-              })}>{"Test1"}</NavLink>
+              })}>{"Simple Hook"}</NavLink>
             </ul>
             <ul>
               {"Test2"}
