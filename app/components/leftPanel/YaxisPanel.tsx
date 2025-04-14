@@ -1,11 +1,11 @@
 interface YaxisPanelProps {
-  value: string[];
-  setValue: (value: string[]) => void;
+  values: string[];
+  setValues: (value: string[]) => void;
 }
 
-export const YaxisPanel = ({ value, setValue }: YaxisPanelProps) => {
+export const YaxisPanel = ({ values, setValues }: YaxisPanelProps) => {
   const yAxisOnClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    setValue([e.currentTarget.value, ...value]);
+    setValues([e.currentTarget.value, ...values]);
   };
 
   return <button onClick={yAxisOnClick}>Hello</button>;

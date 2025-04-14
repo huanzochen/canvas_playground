@@ -1,5 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { YaxisPanel } from "./YaxisPanel";
+import { YValuesPanel } from "./YValuesPanel";
 import { produce } from "immer";
 
 export type State = {
@@ -12,8 +13,10 @@ interface LeftPanelProps {
   init: State;
 }
 
-export const LeftPanel = ({ init }: LeftPanelProps) => {
+export const LeftPanel: React.FC<LeftPanelProps> = ({ init }) => {
   const [state, setState] = useState<State>(init);
+
+  console.log("LeftPanel state", state);
 
   const onChange = (object: Partial<State>) => {
     setState((baseState) => {
@@ -27,9 +30,15 @@ export const LeftPanel = ({ init }: LeftPanelProps) => {
     <div>
       Hello world
       <YaxisPanel
-        value={state.yaxisValues}
-        setValue={(yaxisValues: string[]) => {
+        values={state.yaxisValues}
+        setValues={(yaxisValues: string[]) => {
           onChange({ yaxisValues });
+        }}
+      />
+      <YValuesPanel
+        values={state.yValues}
+        setValues={(yValues: string[]) => {
+          onChange({ yValues });
         }}
       />
     </div>
