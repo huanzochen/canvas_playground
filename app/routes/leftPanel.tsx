@@ -1,6 +1,6 @@
 import type { Route } from "./+types/main";
 import { Welcome } from "../welcome/welcome";
-import { LeftPanel } from "../components/leftPanel/leftPanel";
+import { LeftPanelStory } from "../components/leftPanel/index";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -14,7 +14,7 @@ export default function leftPanel() {
     <div className="flex flex-col h-screen">
       <Welcome />
       <div className="flex-grow">
-        <LeftPanel />
+        <LeftPanelStory />
       </div>
     </div>
   );

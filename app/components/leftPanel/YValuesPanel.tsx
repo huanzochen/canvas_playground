@@ -25,7 +25,7 @@ export const YValuesPanel: React.FC<YValuesPanelProps> = ({
   return (
     <div>
       <h2>Y Values</h2>
-      <button onClick={handleYValuesChange}>balabala</button>
+      <button onClick={handleYValuesChange}>handleYValuesChange</button>
     </div>
   );
 };

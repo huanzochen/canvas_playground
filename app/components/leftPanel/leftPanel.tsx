@@ -1,12 +1,20 @@
 import React, { useState } from "react";
-import { YaxisPanel } from "./YaxisPanel";
+import { YAxisPanel } from "./YAxisPanel";
 import { YValuesPanel } from "./YValuesPanel";
 import { produce } from "immer";
+
+type Segments = {
+  columnValues: string[];
+  rowValues: string[];
+  pageByValues: string[];
+  showStatistics: boolean;
+};
 
 export type State = {
   yValues: string[];
   xValues: string[];
-  yaxisValues: string[];
+  yAxisValues: string[];
+  segments: Segments;
 };
 
 interface LeftPanelProps {
@@ -28,11 +36,11 @@ export const LeftPanel: React.FC<LeftPanelProps> = ({ init }) => {
 
   return (
     <div>
-      Hello world
-      <YaxisPanel
-        values={state.yaxisValues}
-        setValues={(yaxisValues: string[]) => {
-          onChange({ yaxisValues });
+      LeftPanel
+      <YAxisPanel
+        values={state.yAxisValues}
+        setValues={(yAxisValues: string[]) => {
+          onChange({ yAxisValues });
         }}
       />
       <YValuesPanel
