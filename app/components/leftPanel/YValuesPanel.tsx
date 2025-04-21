@@ -16,16 +16,15 @@ export const YValuesPanel: React.FC<YValuesPanelProps> = ({
   setValues,
 }) => {
   const handleYValuesChange = (e: React.MouseEvent<HTMLButtonElement>) => {
-    // Logic to handle Y values change
-    console.log("Y values changed");
-
     setValues([e.currentTarget.value, ...values]);
     // This is just a placeholder. You can implement your own logic here.
   };
   return (
     <div>
       <h2>Y Values</h2>
-      <button onClick={handleYValuesChange}>handleYValuesChange</button>
+      <button onClick={handleYValuesChange} value={"BKM1.2"}>
+        handleYValuesChange
+      </button>
     </div>
   );
 };
